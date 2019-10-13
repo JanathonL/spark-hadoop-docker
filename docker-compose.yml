@@ -6,11 +6,11 @@ services:
     hostname: master
     networks:
       static-network:
-        ipv4_address: 10.0.199.1
+        ipv4_address: 10.0.199.2
     extra_hosts:
-      - "master:10.0.199.1"
-      - "slave1:10.0.199.2"
-      - "slave2:10.0.199.3"
+      - "master:10.0.199.2"
+      - "slave1:10.0.199.3"
+      - "slave2:10.0.199.4"
     expose:
       - 9870
       - 7077
@@ -36,11 +36,11 @@ services:
     hostname: slave1
     networks:
       static-network:
-        ipv4_address: 10.0.199.2
+        ipv4_address: 10.0.199.3
     extra_hosts:
-      - "master:10.0.199.1"
-      - "slave1:10.0.199.2"
-      - "slave2:10.0.199.3"
+      - "master:10.0.199.2"
+      - "slave1:10.0.199.3"
+      - "slave2:10.0.199.4"
     expose:
       - 9870
       - 7077
@@ -57,11 +57,11 @@ services:
     hostname: slave2
     networks:
       static-network:
-        ipv4_address: 10.0.199.3
+        ipv4_address: 10.0.199.4
     extra_hosts:
-      - "master:10.0.199.1"
-      - "slave1:10.0.199.2"
-      - "slave2:10.0.199.3"
+      - "master:10.0.199.2"
+      - "slave1:10.0.199.3"
+      - "slave2:10.0.199.4"
     expose:
       - 9870
       - 7077
