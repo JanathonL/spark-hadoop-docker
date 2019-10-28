@@ -1,6 +1,7 @@
 # Intro
 A docker image for running spark on hadoop cluster with yarn cluster manager 
 and HDFS.
+> This develop branch only has 1 master node. The user machines can be added to the cluster one by one later.
 
 # Note
 * Make sure that you have installed the latest version of Docker.

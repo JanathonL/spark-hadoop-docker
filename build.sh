@@ -1,3 +1,3 @@
 #!/bin/bash
 
-docker build --rm -t hadoop-spark .
+docker build --rm -t hadoop-spark-test .

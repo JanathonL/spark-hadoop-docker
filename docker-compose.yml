@@ -2,23 +2,23 @@ version: "3.7"
 services:
   master:
     build: .
-    image: hadoop-spark
+    image: hadoop-spark-test
     hostname: master
     networks:
       static-network:
         ipv4_address: 10.0.199.2
     extra_hosts:
       - "master:10.0.199.2"
-      - "slave1:10.0.199.3"
-      - "slave2:10.0.199.4"
+      # - "slave1:10.0.199.3"
+      # - "slave2:10.0.199.4"
     expose:
       - 9870
       - 7077
       - 6066
       - 22
-    depends_on:
-      - "slave1"
-      - "slave2"
+    # depends_on:
+    #   - "slave1"
+    #   - "slave2"
     ports:
       - 9870:9870
       - 6066:6066
@@ -29,47 +29,47 @@ services:
     volumes:
       - ./scripts:/scripts
       - ./sample:/sample
-  slave1:
-    build: .
-    image: hadoop-spark
-    command: /launch-worker.sh
-    hostname: slave1
-    networks:
-      static-network:
-        ipv4_address: 10.0.199.3
-    extra_hosts:
-      - "master:10.0.199.2"
-      - "slave1:10.0.199.3"
-      - "slave2:10.0.199.4"
-    expose:
-      - 9870
-      - 7077
-      - 6066
-      - 8042
-      - 22
-    ports:
-      - 9871:9870
-      - 8043:8042
-  slave2:
-    build: .
-    image: hadoop-spark
-    command: /launch-worker.sh
-    hostname: slave2
-    networks:
-      static-network:
-        ipv4_address: 10.0.199.4
-    extra_hosts:
-      - "master:10.0.199.2"
-      - "slave1:10.0.199.3"
-      - "slave2:10.0.199.4"
-    expose:
-      - 9870
-      - 7077
-      - 6066
-      - 8042
-    ports:
-      - 9872:9870
-      - 8044:8042
+  # slave1:
+  #   build: .
+  #   image: hadoop-spark
+  #   command: /launch-worker.sh
+  #   hostname: slave1
+  #   networks:
+  #     static-network:
+  #       ipv4_address: 10.0.199.3
+  #   extra_hosts:
+  #     - "master:10.0.199.2"
+  #     - "slave1:10.0.199.3"
+  #     - "slave2:10.0.199.4"
+  #   expose:
+  #     - 9870
+  #     - 7077
+  #     - 6066
+  #     - 8042
+  #     - 22
+  #   ports:
+  #     - 9871:9870
+  #     - 8043:8042
+  # slave2:
+  #   build: .
+  #   image: hadoop-spark
+  #   command: /launch-worker.sh
+  #   hostname: slave2
+  #   networks:
+  #     static-network:
+  #       ipv4_address: 10.0.199.4
+  #   extra_hosts:
+  #     - "master:10.0.199.2"
+  #     - "slave1:10.0.199.3"
+  #     - "slave2:10.0.199.4"
+  #   expose:
+  #     - 9870
+  #     - 7077
+  #     - 6066
+  #     - 8042
+  #   ports:
+  #     - 9872:9870
+  #     - 8044:8042
 networks:
   static-network:
     ipam:
