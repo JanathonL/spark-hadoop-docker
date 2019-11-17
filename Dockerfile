@@ -1,7 +1,7 @@
 FROM ubuntu
 
 # Install packages
-RUN apt-get update \
+RUN apt-get clean && apt-get update \
  && apt-get install -y openjdk-8-jdk \
  && apt-get install -y curl \
  && apt-get install -y scala \
